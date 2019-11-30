@@ -7,11 +7,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 const keys = require('./config/key');
-
+const ngrok = require('ngrok');
 const mongoose = require("mongoose");
-
 var app = express();
 
+
+(async function () {
+  const url =  ngrok.connect(9000);
+  console.log(url)
+})();
+
+ 
 
 mongoose.connect(keys.mongodb.dbURL, {
   useNewUrlParser: true, useUnifiedTopology: true,
@@ -29,9 +35,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
-  app.use('/', apiRouter);
+app.use('/', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
