@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-
+const URL = 'http://10.110.6.166/user/1'
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -8,19 +9,48 @@ class Header extends Component {
             error: null,
             isLoaded: false,
             items: [],
-            data: null,
+            data: [],
         };
     }
-    async  componentDidMount() {
 
-        var response = await fetch("http://localhost:9000/user/1", { mode: 'no-cors' })
+    // async componentDidMount() {
+    //     var resp = this.resdata();
+    //     console.log('huydev')
+    //     console.log(resp)
+    // }
+
+    async componentDidMount() {
+
+        var x = await this.resdata()
+
+        this.setState({
+            data: x
+        })
+
         console.log('huydev')
-        console.log(response)
+        console.log(this.state.data)
     }
+
+    async resdata() {
+        var data = await fetch(URL)
+        const responseJson = data.json();
+        return responseJson
+    }
+
     render() {
         return (
             <div>
-                {JSON.stringify(this.state.planets)}
+                {this.state.data.map((item, i) =>
+                    <ul key={i}>
+                        <li>
+                            {/* <img src={item.image} /> */}
+                            <p> {item.email}</p>
+                        </li>
+                    </ul>
+
+
+                )}
+
             </div>
         );
     }

@@ -7,17 +7,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 const keys = require('./config/key');
-const ngrok = require('ngrok');
 const mongoose = require("mongoose");
+ const cors = require("cors");
 var app = express();
-
-
-(async function () {
-  const url =  ngrok.connect(9000);
-  console.log(url)
-})();
-
- 
 
 mongoose.connect(keys.mongodb.dbURL, {
   useNewUrlParser: true, useUnifiedTopology: true,
@@ -25,6 +17,8 @@ mongoose.connect(keys.mongodb.dbURL, {
   console.log('connet monggodb')
 });
 
+//allow cors
+ app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -43,6 +37,7 @@ app.use('/', apiRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function (err, req, res, next) {

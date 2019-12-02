@@ -18,7 +18,7 @@ router.post('/user', (req, res) => {
 router.get('/user/:userID', (req, res) => {
     var userID = req.params.userID;
 
-    User.findOne({ userID: userID }).then((user) => {
+    User.find({ userID: userID }).then((user) => {
         res.send(user);
     }, (e) => {
         res.status(400).send(e);
@@ -28,7 +28,6 @@ router.get('/user/:userID', (req, res) => {
 
 router.put('/user/:userID', (req, res) => {
     var query = { userID: req.params.userID };
-
     User.findOneAndUpdate(query, {
         role: req.body.role,
         password: req.body.password
