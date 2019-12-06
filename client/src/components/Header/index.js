@@ -47,8 +47,6 @@ class Header extends Component {
                             <p> {item.email}</p>
                         </li>
                     </ul>
-
-
                 )}
 
             </div>
