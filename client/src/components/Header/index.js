@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const URL = 'http://10.110.6.166/user/1'
+const URL = 'http://10.110.6.166/user/2'
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -12,12 +12,6 @@ class Header extends Component {
             data: [],
         };
     }
-
-    // async componentDidMount() {
-    //     var resp = this.resdata();
-    //     console.log('huydev')
-    //     console.log(resp)
-    // }
 
     async componentDidMount() {
 

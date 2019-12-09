@@ -1,16 +1,13 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Button from '@material-ui/core/Button';
-// import Header from './components/Header';
+// import Button from '@material-ui/core/Button';
+import Home from '../src/screens/Home';
 
 
 function App() {
   return (
     <div className="App">
-      <Button variant="contained" color="primary">
-        Hello World
-    </Button>
+      <Home />
     </div>
   );
 }
