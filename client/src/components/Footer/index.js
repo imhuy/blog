@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
+import styles from './styles';
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <p>Footer</p>
+                <p className= "{}">Footer</p>
 
             </div>
         );
