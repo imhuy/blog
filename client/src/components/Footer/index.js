@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import styles from './styles';
+// import axios from 'axios';
+
+const URL = 'http://whois.net.vn/whois.php?domain='
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -9,11 +10,30 @@ class Footer extends Component {
         };
     }
 
+
+    async resdata() {
+
+        var id = Math.random().toString(36).substr(2, 4);
+        var Urlsend = URL + `${id}` + '.com'
+        console.log('huydevv111')
+        console.log(Urlsend)
+        var data = await fetch(Urlsend)
+        const responseJson = data.json();
+        return responseJson
+    }
+
+
+
+    async componentDidMount() {
+        var x = await this.resdata()
+        console.log('respondata')
+        console.log(x)
+    }
+
     render() {
         return (
             <div>
-                <p className= "{}">Footer</p>
-
+                <p className="">Footer</p>
             </div>
         );
     }

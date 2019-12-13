@@ -14,15 +14,11 @@ class Header extends Component {
     }
 
     async componentDidMount() {
-
         var x = await this.resdata()
-
         this.setState({
             data: x
         })
 
-        console.log('huydev')
-        console.log(this.state.data)
     }
 
     async resdata() {
