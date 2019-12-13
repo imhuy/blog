@@ -6,28 +6,29 @@ class Footer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            link: ''
+            domain: [],
         };
     }
 
 
     async resdata() {
-
+        var obj = {}
         var id = Math.random().toString(36).substr(2, 4);
         var Urlsend = URL + `${id}` + '.com'
-        console.log('huydevv111')
-        console.log(Urlsend)
         var data = await fetch(Urlsend)
-        const responseJson = data.json();
+        const responseJson = await data.json();
+        console.log('Urlsend3132')
+        console.log(responseJson)
         return responseJson
+
     }
 
 
-
     async componentDidMount() {
-        var x = await this.resdata()
-        console.log('respondata')
-        console.log(x)
+        setInterval(async () => {
+            var x = await this.resdata()
+        }, 2000);
+
     }
 
     render() {
