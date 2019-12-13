@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const URL = 'http://10.110.6.166/user/2'
+const URL = 'http://localhost/user/2'
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class Header extends Component {
         this.setState({
             data: x
         })
-
+        
     }
 
     async resdata() {
