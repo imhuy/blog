@@ -14,10 +14,12 @@ class Footer extends Component {
     async resdata() {
         var obj = {};
         var domain = [];
-        var id = Math.random().toString(36).substr(2, 3);
+        // var id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 4);
 
+        var id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 5);
         var Urlsend = URL + `${id}` + '.com'
         var data = await fetch(Urlsend)
+
         const respon = await data.json();
         if (respon === 1) {
             return [];
@@ -31,13 +33,9 @@ class Footer extends Component {
     async componentDidMount() {
         var totaldoamin = [];
         setInterval(async () => {
-
             var domain = await this.resdata()
             domain.forEach((item) => {
-
                 totaldoamin.push(item)
-                console.log('Urlsend3132')
-                console.log(totaldoamin)
             })
             this.setState({
                 domain: totaldoamin
@@ -51,9 +49,9 @@ class Footer extends Component {
             <div>
                 {this.state.domain.map((item, i) =>
                     <ul key={i}>
-                        <li>
-                            <p> {item.domain}</p>
-                        </li>
+                        
+                            <p> {item.domain}.com</p>
+                       
                     </ul>
                 )}
 

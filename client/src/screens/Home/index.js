@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+// import Header from '../../components/Header';
+// import Footer from '../../components/Footer';
+import Demo from '../../components/Demo';
 
 class Home extends Component {
     constructor(props) {
@@ -12,8 +13,9 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Header />
-                <Footer />
+                <Demo />
+                {/* <Header /> */}
+                {/* <Footer /> */}
             </React.Fragment>
         );
     }
