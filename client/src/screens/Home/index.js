@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import Header from '../../components/Header';
 // import Footer from '../../components/Footer';
-import Demo from '../../components/Demo';
+// import Demo from '../../components/Demo';
+import HomePage from '../../components/HomePage';
 
 class Home extends Component {
     constructor(props) {
@@ -13,9 +14,7 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Demo />
-                {/* <Header /> */}
-                {/* <Footer /> */}
+                <HomePage />
             </React.Fragment>
         );
     }

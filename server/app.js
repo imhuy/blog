@@ -6,9 +6,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
+var order = require('./routes/order')
 const keys = require('./config/key');
 const mongoose = require("mongoose");
- const cors = require("cors");
+const cors = require("cors");
 var app = express();
 
 mongoose.connect(keys.mongodb.dbURL, {
@@ -18,7 +19,7 @@ mongoose.connect(keys.mongodb.dbURL, {
 });
 
 //allow cors
- app.use(cors())
+app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -29,9 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/', apiRouter);
+app.use(indexRouter, apiRouter, usersRouter,);
+app.use('/order', order);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
