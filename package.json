@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/huylvdev/webapp#readme",
   "dependencies": {
+    "concurrently": "^5.1.0",
     "dateformat": "^3.0.3",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.4",
