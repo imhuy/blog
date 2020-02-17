@@ -12,15 +12,17 @@ export default {
     },
     cardGrid: {
         paddingTop: 8,
-        paddingBottom: 8
+        paddingBottom: 8,
+        // backgroundColor: 'red',
     },
     card: {
-        height: '100%',
+
         display: 'flex',
         flexDirection: 'column',
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '50%', // 16:9
+        // backgroundColor: 'red'
     },
     cardContent: {
         flexGrow: 1,
@@ -29,4 +31,11 @@ export default {
         backgroundColor: '#fff',
         padding: 6
     },
+     title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
+
 };
