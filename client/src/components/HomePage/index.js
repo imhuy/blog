@@ -1,8 +1,8 @@
-import { AppBar, Button, Card, CardContent, CardMedia, Container, CssBaseline, Grid, Link, CardActions, Toolbar, Typography } from '@material-ui/core';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
+import Header from '../Header';
 import styles from './styles';
-const cards = [1, 2, 3, 4, 5, 6];
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, ];
 
 class HomePage extends Component {
 
@@ -10,23 +10,7 @@ class HomePage extends Component {
         return (
 
             <Card >
-                <CardContent>
-                    <Typography className={styles.title} color="textSecondary" gutterBottom>
-                        Word of the Day
-              </Typography>
 
-                    <Typography className={styles.pos} color="textSecondary">
-                        adjective
-              </Typography>
-                    <Typography variant="body2" component="p">
-                        well meaning and kindly.
-                <br />
-                        {'"a benevolent smile"'}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
             </Card>
 
         );
@@ -35,77 +19,72 @@ class HomePage extends Component {
     render() {
         return (
             <React.Fragment>
-                <CssBaseline />
-                <AppBar position="relative">
-                    <Toolbar>
-                        <CameraIcon style={styles.icon} />
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Album layout
-                </Typography>
-                    </Toolbar>
-                </AppBar>
-                <main>
+
+                <main style={styles.main}>
                     {/* Hero unit */}
-                    <div style={styles.heroContent}>
-                        <Container maxWidth="sm">
-                            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                                Album layout
-                  </Typography>
-                            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                                Something short and leading about the collection below—its contents, the creator, etc.
-                                Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                                entirely.
-                  </Typography>
-                            <div style={styles.heroButtons}>
-                                <Grid container spacing={2} justify="center">
-                                    <Grid item>
-                                        <Button variant="contained" color="primary">
-                                            Main call to action
+                    <div style={styles.content} >
+                        <Header />
+
+                        <div style={styles.heroContent}>
+                            <Container maxWidth="sm">
+
+                                <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                                    Album layout
+                            </Typography>
+
+                                <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                    Something short and leading about the collection below—its contents, the creator, etc.
+                                    Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+                                    entirely.
+                            </Typography>
+
+                                <div style={styles.heroButtons}>
+                                    <Grid container spacing={2} justify="center">
+                                        <Grid item>
+                                            <Button variant="text" color="primary">
+                                                Main call to action
                         </Button>
-                                    </Grid>
-                                    <Grid item>
-                                        <Button variant="outlined" color="primary">
-                                            Secondary action
+                                        </Grid>
+                                        <Grid item>
+                                            <Button variant="outlined" color="primary">
+                                                Secondary action
                         </Button>
+                                        </Grid>
                                     </Grid>
+                                </div>
+                            </Container>
+                        </div>
+                        <div>
+                            <Container style={styles.cardGrid} >
+                                {/* End hero unit */}
+                                <Grid style={styles.gird} container spacing={4}>
+                                    {cards.map(card => (
+                                        <Grid item key={card} xs={12} sm={6} md={3}>
+                                            <Paper elevation={1} style={styles.card} >
+                                                <div >
+                                                    <CardMedia
+                                                        style={styles.cardMedia}
+                                                        image="https://miro.medium.com/max/1058/1*Z1SU1atGbGMgY_jHaDyMGA.png"
+                                                        title="Image title"
+                                                    />
+                                                </div>
+                                                <div style={styles.cardContent}>
+                                                    {/* <p style={styles.h2} > */}
+                                                    <p style={{ fontFamily: 'sans-serif', fontSize: "large", fontWeight: 'bolder', }} >
+                                                        How to Remove Array Duplicates in ES6
+                          </p>
+                                                    <Typography>
+                                                        This is a media card. You can use this section to describe the content.
+                          </Typography>
+                                                </div>
+
+                                            </Paper>
+                                        </Grid>
+                                    ))}
                                 </Grid>
-                            </div>
-                        </Container>
+                            </Container>
+                        </div>
                     </div>
-                    <Container style={styles.cardGrid} maxWidth="lg">
-                        {/* End hero unit */}
-                        <Grid container spacing={4}>
-                            {cards.map(card => (
-                                <Grid item key={card} xs={12} sm={6} md={4}>
-                                    <Card style={styles.card}>
-                                        <div >
-                                            <CardMedia
-                                                style={styles.cardMedia}
-                                                image="https://miro.medium.com/max/1058/1*Z1SU1atGbGMgY_jHaDyMGA.png"
-                                                title="Image title"
-                                            />
-                                        </div>
-                                        <CardContent style={styles.cardContent}>
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                How to Remove Array Duplicates in ES6
-                          </Typography>
-                                            <Typography>
-                                                This is a media card. You can use this section to describe the content.
-                          </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Button size="small" color="primary">
-                                                View
-                          </Button>
-                                            <Button size="small" color="primary">
-                                                Edit
-                          </Button>
-                                        </CardActions>
-                                    </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Container>
                 </main>
                 {/* Footer */}
                 <footer style={styles.footer}>

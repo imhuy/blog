@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import Footer from '../../components/Footer';
 // import Demo from '../../components/Demo';
 import HomePage from '../../components/HomePage';
+// import TTA from '../../components/TTA';
 
 class Home extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <HomePage />
+                {/* <HomePage /> */}
+                < HomePage />
             </React.Fragment>
         );
     }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import styles from './styles';
 
-
-const URL = 'http://localhost/user/2';
 const mp31 = 'https://gate-aicc.vbeecore.com/streaming/15805280514370.079697602310938810.0484477329890495860.5895274140842885.mp3';
 const mp32 = 'https://gate-aicc.vbeecore.com/streaming/15805282712960.63996738141998160.96403569683832240.6992288369013859.mp3';
 const playlist = [
@@ -10,13 +9,15 @@ const playlist = [
     { name: 'p2', path: mp32, id: 'p2' },
 
 ];
-
+const url = 'https://beta.vbee.vn/api/v1/convert-tts?voice=hn_male_manhdung_news_48k-h&bit_rate=128000&input_text='
 class TTA extends Component {
     constructor(props) {
         super(props);
         this.state = {
             stplaylist: [],
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -35,48 +36,42 @@ class TTA extends Component {
         console.log(audioEl)
         audioEl.pause()
     }
+    async getlinkAudio() {
+        var getlink = `${url}` + this.state.value;
+        var data = await fetch(getlink, { mode: 'no-cors' })
+        const responseJson = await data.json();
+        console.log('responseJson')
+        console.log(responseJson)
+        return responseJson
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
+
+ 
+    async handleSubmit(event) {
+        var link = await this.getlinkAudio();
+        // alert(link);
+        console.log('link54654234')
+        console.log(link)
+        event.preventDefault();
+    }
 
     render() {
         return (
-            // <div>
-            //     <button onClick={this.playAudio}>
-            //         <span>Play Audio</span>
-            //     </button>
-            //     <a href="#" class="audio prev">Prev</a>
-            //     <audio controls className="audio-element">
-            //         <source src={mp3} type="audio/mpeg"></source>
-            //     </audio>
-            //     <a href="#" class="audio next">Next</a>
 
-            //     <button onClick={this.pauseAudio}>
-            //         <span>Pause Audio</span>
-            //     </button>
-
-            // </div>
-
-
-            // <div>
-            //     <button onClick={this.playAudio}>
-            //         <span>Play Audio</span>
-            //     </button>
-
-            //      <button onClick={this.pauseAudio}>
-            //         <span>Pause Audio</span>
-            //   </button>
-            //     {this.state.stplaylist.map((item, i) =>
-            //         <ul key={item.id}>
-            //             <li >
-            //                 <p> {item.name}</p>
-            //                 <audio controls className="audio-element">
-            //                     <source src={item.path} type="audio/mpeg"></source>
-            //                 </audio>
-            //             </li>
-            //         </ul>
-
-            //     )}
-            // </div>
 
             <div>
+
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Name:
+          <input style={styles.input} type="text" value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 <button onClick={this.playAudio}>
                     <span>Play Audio</span>
                 </button>
@@ -89,7 +84,7 @@ class TTA extends Component {
                         <li >
                             <p> {item.name}</p>
                             <ReactAudioPlayer
-                                src= {item.path}
+                                src={item.path}
                                 autoPlay
                                 controls
                             />
