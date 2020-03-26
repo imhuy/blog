@@ -1,8 +1,8 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography, Paper } from '@material-ui/core';
+import { Button, Card, CardMedia, Container, Grid, Paper, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import Header from '../Header';
 import styles from './styles';
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, ];
+const cards = [1, 2, 3, 4, 5, 6,];
 
 class HomePage extends Component {
 
@@ -42,13 +42,13 @@ class HomePage extends Component {
                                     <Grid container spacing={2} justify="center">
                                         <Grid item>
                                             <Button variant="text" color="primary">
-                                                Main call to action
-                        </Button>
+                                                Main call to action  </Button>
+
                                         </Grid>
                                         <Grid item>
                                             <Button variant="outlined" color="primary">
-                                                Secondary action
-                        </Button>
+                                                Secondary action  </Button>
+
                                         </Grid>
                                     </Grid>
                                 </div>
@@ -57,10 +57,10 @@ class HomePage extends Component {
                         <div>
                             <Container style={styles.cardGrid} >
                                 {/* End hero unit */}
-                                <Grid style={styles.gird} container spacing={4}>
+                                <Grid container spacing={6}>
                                     {cards.map(card => (
-                                        <Grid item key={card} xs={12} sm={6} md={3}>
-                                            <Paper elevation={1} style={styles.card} >
+                                        <Grid item key={card} xs={12} sm={6} md={4}>
+                                            <Paper elevation={0} style={styles.card} >
                                                 <div >
                                                     <CardMedia
                                                         style={styles.cardMedia}
@@ -71,11 +71,9 @@ class HomePage extends Component {
                                                 <div style={styles.cardContent}>
                                                     {/* <p style={styles.h2} > */}
                                                     <p style={{ fontFamily: 'sans-serif', fontSize: "large", fontWeight: 'bolder', }} >
-                                                        How to Remove Array Duplicates in ES6
-                          </p>
-                                                    <Typography>
-                                                        This is a media card. You can use this section to describe the content.
-                          </Typography>
+                                                        How to Remove Array Duplicates in ES6 </p>
+                                                    <Typography> This is a media card. You can use this section to describe the content.  </Typography>
+
                                                 </div>
 
                                             </Paper>

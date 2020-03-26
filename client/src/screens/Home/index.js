@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import Footer from '../../components/Footer';
 // import Demo from '../../components/Demo';
 import HomePage from '../../components/HomePage';
+import NotFound from '../../screens/NotFound';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import TTA from '../../components/TTA';
 
 class Home extends Component {
@@ -14,10 +16,19 @@ class Home extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                {/* <HomePage /> */}
-                < HomePage />
-            </React.Fragment>
+            <BrowserRouter >
+                <React.Fragment>
+                    <Switch>
+                        {/* <Route path="/" component={HomePage} /> */}
+                        <Route path="/">
+                            <HomePage />
+                        </Route>
+                        <Route path="/abc">
+                            <NotFound />
+                        </Route>
+                    </Switch>
+                </React.Fragment>
+            </BrowserRouter>
         );
     }
 }

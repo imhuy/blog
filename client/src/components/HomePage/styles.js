@@ -4,7 +4,6 @@ export default {
         marginRight: 2
     },
     main: {
-     
         // flexDirection: 'column',
         // justifyContent: 'center',
         // alignContent: 'center',
@@ -14,7 +13,7 @@ export default {
 
     },
     content: {
-   
+
     },
     cont: {
         backgroundColor: 'red'
@@ -41,13 +40,12 @@ export default {
         flexDirection: 'column',
     },
     gird: {
-
+        backgroundColor: 'red'
     },
     cardMedia: {
         //  paddingTop: '50%', // 16:9
         // backgroundColor: 'red',
-        // height:'100%',
-        paddingTop: '40%',
+         paddingTop: '50%',
 
     },
     cardContent: {
