@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import Footer from '../../components/Footer';
 // import Demo from '../../components/Demo';
 import HomePage from '../../components/HomePage';
-import NotFound from '../../screens/NotFound';
+import PostEdit from '../../screens/NotFound';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import TTA from '../../components/TTA';
 
@@ -15,17 +15,18 @@ class Home extends Component {
     }
 
     render() {
+        console.log(React.version);
         return (
             <BrowserRouter >
                 <React.Fragment>
                     <Switch>
-                        {/* <Route path="/" component={HomePage} /> */}
-                        <Route path="/">
-                            <HomePage />
-                        </Route>
-                        <Route path="/abc">
-                            <NotFound />
-                        </Route>
+
+
+                        <Route path="/" component={HomePage} exact />
+
+                        <Route path="/abc" component={PostEdit} />
+
+
                     </Switch>
                 </React.Fragment>
             </BrowserRouter>
