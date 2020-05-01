@@ -49,7 +49,7 @@ export default {
 
     },
     cardContent: {
-        flexGrow: 1,
+        // flexGrow: 1,
     },
     footer: {
         // backgroundColor: 'blue',
