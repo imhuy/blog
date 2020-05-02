@@ -1,8 +1,56 @@
-import { Button, Card, CardMedia, Container, Grid, Paper, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
+import { Button, Card, CardMedia, Container, Grid, Paper, Typography } from '@material-ui/core';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch
+} from "react-router-dom";
+
 import Header from '../Header';
 import styles from './styles';
-const cards = [1, 2, 3, 4, 5, 6,];
+
+
+const data = [
+    {
+        id: 1,
+        title: 'Why Aren’t Straight People Having Better Sex?',
+        content: 'A lot of old-fashioned patterns are still in play',
+        url: 'https://miro.medium.com/max/1400/1*j9QpYrbpvTr9mP_yoE4Z0A.jpeg'
+    },
+    {
+        id: 2,
+        title: 'New to Data Visualization? Start with New York City',
+        content: 'How I used New York’s wealth of publicly available data along with Plotly and Pandas to develop',
+        url: 'https://miro.medium.com/max/1400/1*loe4IWBxEJxxYHsr91R23Q.png'
+    },
+    {
+        id: 3,
+        title: 'How to Build a Bar Chart Race on COVID-19 Cases in Tableau',
+        content: 'Using the new Tableau version 2020.1',
+        url: 'https://miro.medium.com/max/1400/1*fX8HyCk4RoAgv5_im-0gYA.png'
+    },
+    {
+        id: 4,
+        title: 'April Edition: Art, Creativity and Data Science',
+        content: '“Everything you can imagine is real.” ― Pablo Picasso',
+        url: 'https://miro.medium.com/max/1400/1*kpK59IPchFjllOsMEh52zQ.png'
+    },
+    {
+        id: 5,
+        title: 'The Ultimate Guide to Getting Started in Data Science',
+        content: 'How I started getting data science job offers in under 6 months',
+        url: 'https://miro.medium.com/max/3780/1*FS_p6RRY4GZIreQZ2Bxmng.jpeg'
+    },
+    {
+        id: 6,
+        title: 'How to Get Beautiful Results with Neural Style Transfer',
+        content: 'A deep dive into the tricks that make Neural Style Transfer work',
+        url: 'https://miro.medium.com/max/3780/1*-pPVaYrinvTp4Q6bybWi6Q.jpeg'
+    }
+
+]
 
 class HomePage extends Component {
 
@@ -58,26 +106,29 @@ class HomePage extends Component {
                             <Container style={styles.cardGrid} >
                                 {/* End hero unit */}
                                 <Grid container spacing={6}>
-                                    {cards.map(card => (
-                                        <Grid item key={card} xs={12} sm={6} md={4}>
-                                            <Paper elevation={0} style={styles.card} >
-                                                <div >
-                                                    <CardMedia
-                                                        style={styles.cardMedia}
-                                                        image="https://miro.medium.com/max/1058/1*Z1SU1atGbGMgY_jHaDyMGA.png"
-                                                        title="Image title"
-                                                    />
-                                                </div>
-                                                <div style={styles.cardContent}>
-                                                    {/* <p style={styles.h2} > */}
-                                                    <p style={{ fontFamily: 'sans-serif', fontSize: "large", fontWeight: 'bolder', }} >
-                                                        How to Remove Array Duplicates in ES6 </p>
-                                                    <Typography> This is a media card. You can use this section to describe the content.  </Typography>
+                                    {data.map(item => (
+                                        <Grid item key={item.id} xs={12} sm={6} md={4}>
+                                            <Link style={{ textDecoration: 'none' }} to="/abc">
+                                                <Paper elevation={0} style={styles.card} >
+                                                    <div >
+                                                        <CardMedia
+                                                            style={styles.cardMedia}
+                                                            image={item.url}
+                                                            title={item.title}
+                                                        />
+                                                    </div>
+                                                    <div style={styles.cardContent}>
+                                                        {/* <p style={styles.h2} > */}
+                                                        <p style={{ fontFamily: 'Oswald', fontSize: "1.5em", fontWeight: 'bold', }} >
+                                                            {item.title} </p>
+                                                        <Typography style={{ color: '#5f6368' }} > {item.content}  </Typography>
 
-                                                </div>
+                                                    </div>
 
-                                            </Paper>
+                                                </Paper>
+                                            </Link>
                                         </Grid>
+
                                     ))}
                                 </Grid>
                             </Container>
@@ -95,7 +146,7 @@ class HomePage extends Component {
                     {this.Copyright()}
                 </footer>
                 {/* End footer */}
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
