@@ -15,7 +15,7 @@ import routes from "./routes";
 import styles from "./assets/adminStyle.js";
 import bgImage from './assets/img/sidebar-2.jpg';
 import logo from './assets/img/reactlogo.png';
-import "./assets/css/material-dashboard-react.css";
+// import "./assets/css/material-dashboard-react.css";
 
 let ps;
 
@@ -96,7 +96,7 @@ export default function Admin({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Huy"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -120,13 +120,13 @@ export default function Admin({ ...rest }) {
             <div className={classes.map}>{switchRoutes}</div>
           )}
         {getRoute() ? <Footer /> : null}
-        {/* <FixedPlugin
+    {/* <FixedPlugin
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}
           bgColor={color}
           bgImage={image}
           handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses} */}
+          fixedClasses={fixedClasses}  /> */}
       
       </div>
     </div>
