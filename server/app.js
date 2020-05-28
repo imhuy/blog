@@ -6,9 +6,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
-// var order = require('./routes/order')
 const keys = require('./config/key');
 const mongoose = require("mongoose");
+var PostRouter = require('./routes/post');
 const cors = require("cors");
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(indexRouter, apiRouter, usersRouter,);
+app.use(indexRouter, apiRouter, usersRouter, PostRouter);
 // app.use('/order', order);
 
 // catch 404 and forward to error handler
@@ -51,3 +51,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+// export default app;
