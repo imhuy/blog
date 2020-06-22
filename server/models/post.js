@@ -16,6 +16,14 @@ var userSchema = new Schema({
         type: Array,
         // default: 'user'
     },
+    image: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
     dateAdded: { type: Date, default: Date.now },
 })
 const Post = mongoose.model('post', userSchema);

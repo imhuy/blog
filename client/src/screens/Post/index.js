@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
-import { Button, Card, CardMedia, Container, Grid, Paper, Typography } from '@material-ui/core';
-import Header from '../../components/Header'
-import styles from './styles';
-import { debounce } from 'lodash'
+import { Container } from '@material-ui/core';
+import React, { Component } from 'react';
+import Header from '../../components/Header';
 const data = {
     id: 1,
     title: 'Instagram After Dark Is Getting Sexy',
@@ -11,7 +9,6 @@ const data = {
 function createMarkup() {
     return { __html: data.content };
 }
-
 export default class Post extends Component {
     render() {
         return (

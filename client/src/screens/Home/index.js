@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Admin from '../../admin/app';
-import HomePage from '../../components/HomePage';
+// import HomePage from '../../components/HomePage';
+import HomePage from '../HomePage'
 import Post from '../Post';
 
 class Home extends Component {
