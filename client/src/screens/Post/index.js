@@ -10,6 +10,11 @@ function createMarkup() {
     return { __html: data.content };
 }
 export default class Post extends Component {
+    componentDidMount() {
+        console.log('huydev222')
+        console.log(this.props)
+    }
+
     render() {
         return (
             <div>

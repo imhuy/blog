@@ -25,18 +25,19 @@ class HomePage extends Component {
         );
     }
     async componentDidMount() {
-        // var rs = await fetch(`http://localhost/post/0/50`);
-        // var itemResponse = await rs.json();
+        var rs = await fetch(`http://localhost/post/0/50`);
+        var itemResponse = await rs.json();
 
         // console.log('huydev111')
         // console.log(itemResponse.length)
-        // this.setState({ data: itemResponse })
+        this.setState({ data: itemResponse })
     }
 
     async loadmore(page) {
         var rs = await fetch(`http://localhost/post/${page}/6`);
         var itemResponse = await rs.json();
 
+        console.log('huydev1000')
         console.log(itemResponse.length)
         if (itemResponse === null || itemResponse.length === 0) {
             this.setState({ isloadmore: false })
@@ -90,7 +91,7 @@ class HomePage extends Component {
                                     {
                                         this.state.data.map(item => (
                                             <Grid item key={item.id} xs={12} sm={6} md={4}>
-                                                <Link style={{ textDecoration: 'none' }} to="/abc">
+                                                <Link style={{ textDecoration: 'none' }} to={item.slug + item.slug}>
                                                     <Paper elevation={0} style={styles.card} >
                                                         <div >
                                                             <CardMedia

@@ -1,12 +1,27 @@
 const router = require('express').Router();
-const Post = require('../models/post')
+const Post = require('../models/post');
+// import { CutSignOfVietNamese } from '../helper/StringHelper';
 
-router.post('/post', (req, res) => {
+async function bodauTiengViet(str) {
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/ /g, "-");
+    str = str.replace(/\./g, "-");
+    return str;
+}
 
-    console.log(req.body)
+router.post('/post', async (req, res) => {
 
+    let slug = await bodauTiengViet(req.body.title)
     var post = new Post({
         title: req.body.title,
+        slug: slug,
         content: req.body.content,
         tag: req.body.tag,
         category: req.body.category,
@@ -49,7 +64,7 @@ router.get('/post/:page/:pagesize', async (req, res) => {
     let pagesize = parseInt(req.params.pagesize)
 
     let dev = await Post.find({})
-        .select(['title', 'category', 'image', 'description'])
+        .select(['title', 'category', 'image', 'description', 'slug',])
         .skip(page * pagesize)
         .limit(pagesize)
     res.send(dev)
