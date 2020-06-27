@@ -11,28 +11,34 @@ function createMarkup() {
     return { __html: data.content };
 }
 
-async function FetData() {
-    // let seLocation = useLocation();
-    var rs = await fetch(`http://localhost/getbyid/5ef3109f66c09345c64c89d5`, {
-        method: 'GET',
-    });
-    var itemResponse = await rs.json();
- 
-    return itemResponse;
-}
-
 
 export default function Post() {
+    const [planets, setPlanets] = useState('');
+    const [data, setData] = useState([]);
+    var location = useLocation()
+    var id = location.state.fromDashboard
 
-    useEffect(async () => {
-        FetData()
-    });
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch(`http://localhost/getbyid/${id}`);
+            let dev = await res.json();
+            setData(dev)
+            console.log('typeoffdev')
+            console.log(data)
+            setPlanets(dev[0].title);
+            console.log('huydev111')
+            console.log(dev[0].title)
+        }
+
+        fetchData();
+    }, [id]);
+
     return (
         <div>
             <Header />
             <Container maxWidth='md' style={{ backgroundColor: '#fff' }} >
                 <div>
-                    <h1 style={{ fontFamily: 'Oswald', fontSize: "2.5em", fontWeight: 'bold' }} >{data.title}</h1>
+                    <h1 style={{ fontFamily: 'Oswald', fontSize: "2.5em", fontWeight: 'bold' }} >{planets}</h1>
                     {/* <div>
                             <p dangerouslySetInnerHTML={{ __html: data.content }} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }}> </p>
                         </div> */}

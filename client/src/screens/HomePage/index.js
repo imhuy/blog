@@ -95,7 +95,7 @@ class HomePage extends Component {
                                                     // to={item.slug + '-' + item.slug}
                                                     to={{
                                                         pathname: item.slug,
-                                                        state: { fromDashboard: '5ef3109f66c09345c64c89d5' },
+                                                        state: { fromDashboard: item._id },
                                                     }}
                                                 >
                                                     <Paper elevation={0} style={styles.card} >
