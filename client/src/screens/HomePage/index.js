@@ -91,7 +91,13 @@ class HomePage extends Component {
                                     {
                                         this.state.data.map(item => (
                                             <Grid item key={item.id} xs={12} sm={6} md={4}>
-                                                <Link style={{ textDecoration: 'none' }} to={item.slug + item.slug}>
+                                                <Link style={{ textDecoration: 'none' }}
+                                                    // to={item.slug + '-' + item.slug}
+                                                    to={{
+                                                        pathname: item.slug,
+                                                        state: { fromDashboard: '5ef3109f66c09345c64c89d5' },
+                                                    }}
+                                                >
                                                     <Paper elevation={0} style={styles.card} >
                                                         <div >
                                                             <CardMedia

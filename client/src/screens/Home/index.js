@@ -22,7 +22,7 @@ class Home extends Component {
 
                         <Route path="/" component={HomePage} exact />
 
-                        <Route path="/abc" component={Post} />
+                        <Route path="/:id" component={Post} />
 
                         <Route path="/admin" component={Admin} />
 

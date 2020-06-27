@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core';
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Header from '../../components/Header';
+import { useHistory, useParams, useLocation } from "react-router-dom";
 const data = {
     id: 1,
     title: 'Instagram After Dark Is Getting Sexy',
@@ -9,28 +10,37 @@ const data = {
 function createMarkup() {
     return { __html: data.content };
 }
-export default class Post extends Component {
-    componentDidMount() {
-        console.log('huydev222')
-        console.log(this.props)
-    }
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <Container maxWidth='md' style={{ backgroundColor: '#fff' }} >
-                    <div>
-                        <h1 style={{ fontFamily: 'Oswald', fontSize: "2.5em", fontWeight: 'bold' }} >{data.title}</h1>
-                        {/* <div>
+async function FetData() {
+    // let seLocation = useLocation();
+    var rs = await fetch(`http://localhost/getbyid/5ef3109f66c09345c64c89d5`, {
+        method: 'GET',
+    });
+    var itemResponse = await rs.json();
+ 
+    return itemResponse;
+}
+
+
+export default function Post() {
+
+    useEffect(async () => {
+        FetData()
+    });
+    return (
+        <div>
+            <Header />
+            <Container maxWidth='md' style={{ backgroundColor: '#fff' }} >
+                <div>
+                    <h1 style={{ fontFamily: 'Oswald', fontSize: "2.5em", fontWeight: 'bold' }} >{data.title}</h1>
+                    {/* <div>
                             <p dangerouslySetInnerHTML={{ __html: data.content }} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }}> </p>
                         </div> */}
-                        <div>
-                            <p dangerouslySetInnerHTML={createMarkup()} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }} />
-                        </div>
+                    <div>
+                        <p dangerouslySetInnerHTML={createMarkup()} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }} />
                     </div>
-                </Container>
-            </div>
-        )
-    }
+                </div>
+            </Container>
+        </div>
+    )
 }
