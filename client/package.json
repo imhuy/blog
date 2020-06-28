@@ -5,10 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^4.7.1",
     "@material-ui/icons": "^4.9.1",
-    "axios": "^0.19.0",
     "chartist": "^0.11.4",
     "classnames": "^2.2.6",
     "emotion": "^10.0.27",
+    "next": "^9.4.4",
     "perfect-scrollbar": "^1.5.0",
     "react": "^16.12.0",
     "react-chartist": "^0.14.3",
@@ -19,14 +19,15 @@
     "react-scripts": "3.2.0",
     "slate": "^0.57.2",
     "slate-history": "^0.57.2",
-    "slate-react": "^0.57.2",
-    "styled-components": "^4.4.1"
+    "slate-react": "^0.57.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "rc": "react-scripts start",
+    "build": "next build",
+    "start": "next start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "next"
   },
   "eslintConfig": {
     "extends": "react-app"
