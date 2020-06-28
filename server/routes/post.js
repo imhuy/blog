@@ -80,4 +80,12 @@ router.get('/getbyid/:id', async (req, res) => {
 });
 
 
+router.get('/category/:category', async (req, res) => {
+
+    var category = req.params.category;
+    console.log(category)
+    let dev = await Post.find({ category: category })
+    res.send(dev)
+});
+
 module.exports = router;
