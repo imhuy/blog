@@ -20,35 +20,6 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <div style={{ flexDirection: 'row', backgroundColor: '#d7d7db' }} color="#ff4757">
-
-                    <div>
-                        <p style={{ textTransform: 'uppercase', padding: 10, }} variant="h6" >
-                            Album layout  </p>
-                    </div>
-
-                    <div>
-                        <p style={{ textTransform: 'uppercase', padding: 10, }} variant="h6" >
-                            Album layout  </p>
-                    </div>
-
-                    <div>
-                        <p style={{ textTransform: 'uppercase', padding: 10, }} variant="h6" >
-                            Album layout  </p>
-                    </div>
-                    <div>
-                        <p style={{ textTransform: 'uppercase', padding: 10, }} variant="h6" >
-                            Album layout  </p>
-                    </div>
-
-
-                    <div>
-                        <p style={{ textTransform: 'uppercase', padding: 10, }} variant="h6" >
-                            Album layout  </p>
-                    </div>
-
-
-                </div> */}
 
                 <Grid container style={{ backgroundColor: '#fcfcfc' }}  >
 
