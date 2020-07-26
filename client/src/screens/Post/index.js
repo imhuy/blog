@@ -32,16 +32,6 @@ export default function Post() {
         }
 
         setObj(obj)
-        console.log('resitem1111')
-        console.log(responjson[0])
-
-
-
-
-        console.log('res22222')
-        console.log(obj)
-
-
         return responjson;
     }
 
@@ -59,17 +49,10 @@ export default function Post() {
             <Container maxWidth='md' style={{ backgroundColor: '#fff' }} >
                 <div>
                     <h1 style={{ fontFamily: 'Oswald', fontSize: "2.5em", fontWeight: 'bold' }} >{obj.title}</h1>
-                    {/* <div>
-                            <p dangerouslySetInnerHTML={{ __html: data.content }} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }}> </p>
-                        </div> */}
+
                     <div>
                         <p dangerouslySetInnerHTML={createMarkup()} style={{ lineHeight: 2.5, textAlign: 'left', margin: 10, fontFamily: 'sans-serif' }} />
                     </div>
-
-
-
-
-
 
                 </div>
             </Container>
